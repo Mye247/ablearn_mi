@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 id="">h2의 내용</h2>
+    <article>
+      <h1 id="title">1</h1>
+
+      <p id="content">2</p>
+    </article>
+
+    <script type="module"> // 모듈을 쓰지않는다면 async함수로 전체를 감싸줘야 된다.
+      /*
+            1. 다음의 url을 호출해서 데이터를 가져오세요
+            https://jsonplaceholder.typicode.com/todos/1
+
+            2. 가져온 데이터의 내용을 확인해서, article의 내용을 채워 주세요
+        */
+
+      const url = "https://jsonplaceholder.typicode.com/todos/1";
+
+
+      // 내가 한 작성방식
+      console.log(url);
+      fetch(url) // promise를 돌려줌
+        .then((data) => { // 약속이 수행된 다음의 행동
+          console.log(1);
+          return data.json();
+        })
+        .then((data) => {
+          console.log(data);
+          document.getElementById("title").innerText = `${data.title}`;
+          document.getElementById("content").innerText = `${data.id}`;
+        });
+
+
+        // 간단한 작성방식 (await)
+        const response = await fetch(url)
+        const data = await response.json();
+        
+        const titleDOM = document.getElementById("title");
+        const contentDOM = document.getElementById("content");
+
+        titleDOM.innerText = data.title;
+        contentDOM.innerText = data.id;
+    </script>
+
+
+
+    
+  </body>
+</html>

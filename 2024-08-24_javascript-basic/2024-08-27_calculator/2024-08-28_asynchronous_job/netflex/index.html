@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NETFLEX</title>
+    <link rel="stylesheet" href="scss/style.css" />
+    <script src="promise-practice.js" defer></script>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <!--
+    css구현 (다 똑같이)
+    다르게 해도되는건 영화란은 흰색박스로 만들기
+    제목란도 동일하게 제목으로
+    50개씩 있게 제작
+    좌우 스크롤이 가능하게
+    한화면에 5개 보이게
+
+    하나의넓이는 w200px, h150px (영화사진)
+
+
+    수정한 요소
+    id명에 하이픈 넣어 수정(가독성, 깔끔하게)
+
+    -->
+
+    <header>
+      <h1 id="logo"><a href="#">NETFLEX</a></h1>
+    </header>
+
+    <main>
+      <section id="movies-section">
+        <h2 id="now-title">현재 상영작</h2>
+        <article id="screen-movie">
+          <!-- 영화리스트 -->
+        </article>
+      </section>
+
+      <section id="movies-section">
+        <h2 id="score-title">평점이 높은 영화</h2>
+        <article id="score-movie">
+          <!-- 영화리스트 -->
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

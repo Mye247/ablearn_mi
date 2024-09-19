@@ -1,0 +1,112 @@
+/*reset*/
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+header {
+  width: 100%;
+}
+header #logo {
+  margin: 0;
+  padding: 30px;
+}
+header #logo a {
+  color: red;
+  padding: 20px;
+  font: bold 40px/1 arial;
+}
+
+#movies-section {
+  max-width: 100vw;
+  overflow: scroll;
+}
+#movies-section::-webkit-scrollbar {
+  display: none;
+}
+#movies-section #now-title {
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  color: white;
+  font: bold 24px/1 arial;
+}
+#movies-section #score-title {
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  color: white;
+  font: bold 24px/1 arial;
+}
+#movies-section #screen-movie {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  align-content: center;
+}
+#movies-section #screen-movie::-webkit-scrollbar {
+  display: none;
+}
+#movies-section #screen-movie #movie-box {
+  padding-left: 5px;
+  width: 20vw;
+  height: 200px;
+}
+#movies-section #screen-movie #movie-box .box {
+  width: calc((100vw - 120px) / 5);
+  height: 150px;
+  background-color: white;
+}
+#movies-section #screen-movie #movie-box h3 {
+  color: white;
+  margin-top: 10px;
+  font: bold 14px/1 arial;
+}
+#movies-section #score-movie {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  align-content: center;
+}
+#movies-section #score-movie::-webkit-scrollbar {
+  display: none;
+}
+#movies-section #score-movie #movie-box {
+  padding-left: 5px;
+  width: 20vw;
+  height: 200px;
+}
+#movies-section #score-movie #movie-box .box {
+  width: calc((100vw - 120px) / 5);
+  height: 150px;
+  background-color: white;
+}
+#movies-section #score-movie #movie-box h3 {
+  color: white;
+  margin-top: 10px;
+  font: bold 14px/1 arial;
+}/*# sourceMappingURL=style.css.map */

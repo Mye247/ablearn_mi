@@ -1,0 +1,17 @@
+{
+  "name": "2024-08-29_react_basic",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node main3.js",
+    "random": "nanoid"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "nanoid": "^3.3.7"
+  }
+}

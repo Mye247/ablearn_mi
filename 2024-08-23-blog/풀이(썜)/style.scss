@@ -1,0 +1,46 @@
+@charset 'utf-8';
+/*reset*/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+header {
+  border-bottom: 1px solid black;
+  padding: 20px 0px;
+  text-align: center;
+
+  font-weight: bold;
+  font-size: 21px;
+}
+
+.main-container {
+  display: flex;
+  margin-left: auto; // 양옆 마진을 밀어서 가운데로 위치하게 만들기
+  margin-right: auto;
+  padding: 20px;
+  width: 1024px;
+  column-gap: 20px;
+
+  aside {
+    background-color: rgb(255, 255, 167);
+    width: 240px;
+    padding: 20px;
+    
+  }
+
+  main {
+    background-color: rgb(245, 212, 151);
+    flex-grow: 1;
+
+    
+  }
+}

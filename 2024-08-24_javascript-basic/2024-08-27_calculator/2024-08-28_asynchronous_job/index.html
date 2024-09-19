@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hl</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">Hello world</h1>
+
+      <p id="content"></p>
+    </header>
+
+    <script type="module">
+      //   console.log(1);
+      //   1;
+
+      //   setTimeout(() => {
+      //     console.log(2);
+      //     2;
+      //   }, 1000);
+
+      //   console.log(3);
+      //   3;
+
+      // //   비효율적
+      //   setTimeout(() => {
+      //     console.log(4);
+      //     2;
+
+      //     setTimeout(() => {
+      //       console.log(5);
+      //       2;
+
+      //       setTimeout(() => {
+      //         console.log(6);
+      //         2;
+      //       }, 1000);
+      //     }, 2000);
+      //   }, 3000);
+
+      // 효율적 promise 사용
+      // async function main(params) {
+      //     await new Promise((r) => setTimeout(r, 1000));
+      //     console.log(1);
+
+      // await new Promise((r) => setTimeout(r, 2000));
+      // console.log(2);
+
+      // await new Promise((r) => setTimeout(r, 3000));
+      // console.log(3);
+      // }
+
+      // main(); // 1, 2, 3 출력
+
+      // new Promise((...args)=> console.log(args));
+
+      // new Promise ((a, b) =>
+      // console.log(1);
+      // console.log(2);
+      // console.log(3);
+      // )
+
+      // prompt("안녕하세요");
+
+      // const input = prompt("값을 입력하세요");
+      // console.log("사용자가 입력한 값 : ", input);
+
+      // main
+      // const 약속 = await new Promise((resolve, reject)=> { // 약속 만들기 (기다리지 않고 지나친다)
+      //         resolve(100);
+      //     });
+
+      //     console.log("약속", 약속);
+
+    //   async function main2(params) {
+    //     const a = new Promise((resolve, reject) => {
+    //       // 약속 그 자체를 a에다 담는다
+    //       setTimeout(() => resolve("Hello"), 3000); // hello라는 값을 돌려주는 약속
+    //     }).then((결과값) => {
+    //       console.log(결과값);
+    //     });
+
+    //     console.log(123);
+    //   }
+
+    //   main2(); // 123, Hello 출력
+
+
+
+
+
+
+    //   const myPromise = new Promise((resolve, reject) => {
+    //     const success = false; // 가정
+
+    //     if (success) {
+    //       resolve("작업 성공");
+    //     }
+    //     else{
+    //         const msg = "작업이 실패실패실패";
+    //         reject(msg);
+    //     }
+    //   });
+
+    //   console.log(1);
+
+    //   myPromise.then((result)=>{
+    //     console.log("약속성공", result);
+    //   }).catch((something)=>{
+    //     console.log("약속 실패", something);
+    //   })
+
+
+
+
+    //   async function main3(params) {
+    //     async function someFunction(){
+    //     return 1;
+    //   }
+
+    //   const value = await someFunction();
+
+    //   console.log(value);
+    //   }
+
+    //   main3();
+
+
+
+
+
+        const url = 'https://jsonplaceholder.typicode.com/todos/1';
+
+        console.log(1);
+        const data = await fetch(url) // 약속
+        console.log(2, data); // 2 | Response 출력
+        // .then((data)=>{console.log(data)}) // then 안에서 함수 실행
+        
+        console.log(2);
+
+        // 1, 2, data 출력
+
+
+        const data1 = await fetch(url)
+        .then((data)=> data.json() )
+        .then((data)=> console.log(data));
+
+        console.log("데이터", data1);
+    </script>
+  </body>
+</html>

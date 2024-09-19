@@ -1,0 +1,152 @@
+/*reset*/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 375px;
+}
+header h1 {
+  text-align: center;
+  justify-content: center;
+}
+header > img {
+  margin-bottom: 30px;
+  padding: 5px 5px;
+}
+header ul {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  text-align: center;
+}
+header ul li a i {
+  color: black;
+}
+
+#searchBox {
+  width: 100%;
+  height: 80px;
+  border: none;
+  text-align: center;
+}
+#searchBox input {
+  width: 400px;
+  height: 50px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 30px;
+}
+#searchBox div {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
+nav {
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid black;
+}
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
+nav ul li a {
+  color: black;
+}
+
+section {
+  width: 1180px;
+}
+section > img {
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+section aside {
+  width: 300px;
+  height: 400px;
+  background-color: lightcoral;
+  margin-left: 100px;
+  margin-top: 30px;
+  opacity: 0.8;
+  display: flex;
+  flex-wrap: wrap;
+}
+section aside h2 {
+  width: 100%;
+  padding: 10px;
+}
+section aside .boxbox {
+  padding: 10px;
+}
+section aside .boxbox div {
+  width: 55px;
+  height: 55px;
+  border: 1px solid black;
+}
+section aside .boxbox h3 {
+  margin-top: 10px;
+  font: bold 14px/1 arial;
+  color: black;
+}
+section main {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin-left: 10px;
+  text-align: center;
+}
+section main h2 {
+  margin-top: 200px;
+  margin-bottom: 10px;
+}
+section main .pic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+section main .pic img {
+  width: 200px;
+  height: 200px;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background-color: black;
+}
+footer p {
+  color: white;
+}/*# sourceMappingURL=style.css.map */

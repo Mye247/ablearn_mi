@@ -1,0 +1,44 @@
+@charset 'utf-8';
+/*reset*/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+section {
+  width: 1000px;
+  margin-top: 30px;
+  position: relative;
+    top: 0;
+    left: 0;
+
+  > div {
+    width: calc(100% / 80%);
+    margin-left: 100px;
+    background-image: url(/2024-08-27_pikachu/img/grass.png);
+    background-repeat: repeat;
+    
+  }
+
+  
+}
+
+#player {
+    
+    position: absolute;
+    top: 0;
+    left: 100px;
+
+    img{
+        width: 100px;
+        height: 100px;
+    }
+  }

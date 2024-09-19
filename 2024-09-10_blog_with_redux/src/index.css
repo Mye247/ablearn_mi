@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* style component */
+@layer bbb {
+    .blabla{
+        background-color: black;
+    }
+}
