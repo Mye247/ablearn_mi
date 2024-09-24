@@ -6,6 +6,7 @@ import Textarea from "@/app/(root)/_components/Textarea";
 import Input from "@/components/Input";
 import Page from "@/components/Page";
 import { NewPostsData } from "@/schemas/posts.schema";
+import { useAuthStore } from "@/zustand/auth.store";
 import { useRouter } from "next/navigation";
 
 import React, { ComponentProps, useState } from "react";
@@ -14,6 +15,7 @@ function NewPostForm() {
   const [title, setTitle] = useState("");
   const [authorName, setAuthorName] = useState("");
   const [content, setContent] = useState("");
+  const currentUser = useAuthStore((state) => state.currentUser);
 
   const router = useRouter();
 

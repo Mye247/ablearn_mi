@@ -1,6 +1,7 @@
 import { getPosts } from "@/api/posts.API";
 import Page from "@/components/Page";
-import Link from "next/link";
+
+import PostList from "./_components/PostList";
 
 async function HomePage() {
   const posts = await getPosts();
@@ -10,18 +11,7 @@ async function HomePage() {
   return (
     <>
       <Page title="All posts">
-        <ul className="grid grid-cols-1 gap-y-4">
-          {posts.map((post) => (
-            <li key={post.id}>
-              <Link
-                className="hover:text-orange-500 active:brightness-75 transition-all"
-                href={`/posts/${post.id}`}
-              >
-                {post.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <PostList posts={posts} />
       </Page>
     </>
   );

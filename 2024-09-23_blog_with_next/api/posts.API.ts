@@ -1,4 +1,5 @@
 import { NewPostsData, Post } from "@/schemas/posts.schema";
+import { currentUser } from "@/zustand/auth.store";
 
 // 기본 정보
 export async function getPosts() {
@@ -8,7 +9,7 @@ export async function getPosts() {
     });
     const posts = (await response
       .json()
-      .then((data) => JSON.parse(data))) as Post;
+      .then((data) => JSON.parse(data))) as Post[];
 
     return posts;
   } catch (e) {
@@ -28,11 +29,16 @@ export async function getPost(postId: number) {
   }
 }
 
-export async function createPost(newPostData: NewPostsData) {
+export async function createPost(
+  newPostData: NewPostsData,
+  currentUser: currentUser
+) {
+  if (!currentUser) return;
   try {
     const response = fetch("http://localhost:3000/api/posts", {
       method: "POST",
       body: JSON.stringify(newPostData),
+      headers: {Authorization: String{currentUser}},
     });
 
     const newPost = await (await response).json();
