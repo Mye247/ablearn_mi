@@ -1,47 +1,52 @@
+import { getPost } from "@/api/posts.API";
 import Page from "@/components/Page";
-import { Post } from "@/schemas/posts.schema";
 import Link from "next/link";
 import React from "react";
 
 async function PostDetailPage(props: { params: { postId: string } }) {
-  const { postId } = props.params;
+  const postId = Number(props.params.postId);
 
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${postId}`
-  );
-  const post = (await response.json()) as Post;
+  const postPromise = getPost(postId);
 
-  let prevPost;
-  if (+postId >= 1 && +postId <= 100) {
+  let prevPostPromise;
+  if (+postId > 1 && +postId <= 100) {
     const prevPostId = +postId - 1;
-    const prevPostResponse = await fetch(
-      `https://jsonplaceholder.typicode.com/posts/${prevPostId}`
-    );
-    prevPost = (await prevPostResponse.json()) as Post;
+    prevPostPromise = getPost(prevPostId);
   }
 
-  let nextPost;
-  if (+postId >= 1 && +postId <= 100) {
+  let nextPostPromise;
+  if (+postId >= 1 && +postId < 100) {
     const nextPostId = +postId + 1;
-    const nextPostResponse = await fetch(
-      `https://jsonplaceholder.typicode.com/posts/${nextPostId}`
-    );
-    nextPost = (await nextPostResponse.json()) as Post;
+    nextPostPromise = getPost(nextPostId);
   }
+
+  const [post, prevPost, nextPost] = await Promise.all([
+    postPromise,
+    prevPostPromise,
+    nextPostPromise,
+  ]);
+
+  console.log(post, prevPost, nextPost);
+
+  // promise의 결과값을 한번에 뽑기
+
+  //const {약속결과1, 약속결과2, 약속결과3} = await Promise.all([약속, 약속, 약속])
+
+  if (!post) return <strong>포스트를 불러오는데 실패하였습니다</strong>;
 
   return (
     <>
       <Page title={post.title}>
         <div className="mb-4">
           <span>Author ID : </span>
-          <span>{post.id}</span>
+          <span>{post.authorName}</span>
         </div>
-        <p>{post.body}</p>
+        <p>{post.content}</p>
 
         <section className="mt-10 border-t border-black py-5">
           <ul className="grid grid-cols-2">
             <li>
-              <Link href={prevPost ? `/posts/${prevPost.id}` : undefined}>
+              <Link href={prevPost ? `/posts/${prevPost.id}` : "#"}>
                 <strong>이전 포스트 보러가기</strong>
                 {prevPost ? (
                   <h6>{prevPost.title}</h6>
@@ -52,7 +57,7 @@ async function PostDetailPage(props: { params: { postId: string } }) {
             </li>
 
             <li>
-              <Link href={nextPost ? `/posts/${nextPost.id}` : undefined}>
+              <Link href={nextPost ? `/posts/${nextPost.id}` : "#"}>
                 <strong>다음 포스트 보러가기</strong>
                 {nextPost ? (
                   <h6>{nextPost.title}</h6>

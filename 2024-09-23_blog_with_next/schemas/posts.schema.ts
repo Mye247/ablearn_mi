@@ -1,6 +1,8 @@
 export type Post = {
-  userId: number;
   id: number;
+  authorName: string;
   title: string;
-  body: string;
+  content: string;
 };
+
+export type NewPostsData = Omit<Post, "id">;
