@@ -3,10 +3,14 @@ import { NewPostsData, Post } from "@/schemas/posts.schema";
 // 기본 정보
 export async function getPosts() {
   try {
-    const response = await fetch(`http://localhost:3000/api/posts`);
-    const posts = await response.json();
+    const response = await fetch(`http://localhost:3000/api/posts`, {
+      cache: "no-store",
+    });
+    const posts = (await response
+      .json()
+      .then((data) => JSON.parse(data))) as Post;
 
-    return posts as Post;
+    return posts;
   } catch (e) {
     console.error(e);
   }

@@ -6,7 +6,7 @@ type InputProps = {
   inputClassName?: string;
   label: string;
   helpText: string;
-} & Omit<ComponentProps<"input">, "className">; // 기본적으로 할당
+} & Omit<ComponentProps<"textarea">, "className">; // 기본적으로 할당
 
 function Textarea({
   wrapperClassName: passedWrapperClassName,
@@ -21,7 +21,10 @@ function Textarea({
     passedWrapperClassName
   );
 
-  const TextAreaClassName = clsx("outline-none w-full resize-none ", passedTextAreaClassName);
+  const TextAreaClassName = clsx(
+    "outline-none w-full resize-none ",
+    passedTextAreaClassName
+  );
 
   return (
     <div className="flex flex-col items-start self-stretch">
@@ -34,15 +37,13 @@ function Textarea({
 
       {/* textarea */}
       <div className={wrapperClassName}>
-        <textarea id={TextAreaId} type="text" className={TextAreaClassName} {...props} />
+        <textarea id={TextAreaId} className={TextAreaClassName} {...props} />
       </div>
 
       {/* helpText */}
       {helpText && (
         <small className="text-gray-400 text-xs mt-1 ">{helpText}</small>
       )}
-
-      
     </div>
   );
 }

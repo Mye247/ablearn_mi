@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
+
 import { createPost } from "@/api/posts.API";
 import Button from "@/app/(root)/_components/Button";
 import Textarea from "@/app/(root)/_components/Textarea";
@@ -92,8 +92,8 @@ function NewPostForm() {
           label="글 내용"
           helpText="최대 200자까지 작성할 수 있습니다"
           rows={10}
-          onChange={handleChangeContent}
           value={content}
+          onChange={handleChangeContent}
         ></Textarea>
 
         <Button type="submit">작성하기</Button>
