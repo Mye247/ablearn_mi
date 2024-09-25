@@ -9,7 +9,12 @@ function ImageUpLoaderPage() {
     const files = e.target.files;
     if (!files) return;
     const formData = new FormData();
-    formData.append("img", files[0]);
+    
+    // Array.from(files).forEach((file, index) =>
+    //   formData.append(`img-${index}`, file)
+    // );
+
+    Array.from(files).forEach((file) => formData.append("img", file));
 
     const response = await fetch("http://localhost:3000/api/images", {
       method: "POST",
@@ -23,7 +28,7 @@ function ImageUpLoaderPage() {
     <div>
       <h1 className="text-3xl">이미지 업로더</h1>
 
-      <input type="file" onChange={handleChangeImage} />
+      <input type="file" onChange={handleChangeImage} multiple />
 
       <hr />
 

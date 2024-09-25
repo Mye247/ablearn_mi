@@ -6,19 +6,26 @@ import { buffer } from "stream/consumers";
 
 export async function POST(request: NextRequest) {
   const formData = await request.formData();
-  const file = formData.get("img") as File;
+  const files = formData.getAll("img") as File[];
+  console.log("file", files);
 
-  const rootPath = process.cwd();
-  const directoryPath = "public/img";
-  const fileName = file.name;
-  const filePath = path.join(rootPath, directoryPath, fileName);
+  const imgUrls = [];
 
-  const arrayBuffer = await file.arrayBuffer();
-  const data = Buffer.from(arrayBuffer);
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    const rootPath = process.cwd();
+    const directoryPath = "public/img";
+    const fileName = file.name;
+    const filePath = path.join(rootPath, directoryPath, fileName);
 
-  writeFile(filePath, data);
+    const arrayBuffer = await file.arrayBuffer();
+    const data = Buffer.from(arrayBuffer);
 
-  const imgUrl = `http://localhost:3000/img/${fileName}`;
+    writeFile(filePath, data);
 
-  return NextResponse.json(imgUrl);
+    const imgUrl = `http://localhost:3000/img/${fileName}`;
+    imgUrls.push(imgUrl);
+
+    return NextResponse.json(imgUrls);
+  }
 }
