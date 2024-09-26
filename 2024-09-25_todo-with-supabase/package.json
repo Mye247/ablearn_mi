@@ -1,5 +1,5 @@
 {
-  "name": "2024-09-25-next-with-supabase",
+  "name": "2024-09-25_todo-with-supabase",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "types": "npx supabase gen types typescript --project-id azlhmmjmqipccruefude > database.types.ts"
+    "types": "npx supabase gen types typescript --project-id nxrlhgwcyvymhcrrublm > database.types.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
