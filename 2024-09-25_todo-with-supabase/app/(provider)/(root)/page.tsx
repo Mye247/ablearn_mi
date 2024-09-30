@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { ComponentProps, useState } from "react";
 import humanAPI from "@/api/humanAPI";
 import { Database } from "@/database.types";
 import { useQuery } from "@tanstack/react-query";
+import supabase from "@/app/supabase/client";
 
 function HomePage() {
   const [name, setName] = useState("");
@@ -26,6 +27,11 @@ function HomePage() {
     queryKey: ["human"],
     queryFn: () => humanAPI.getHuman(),
   });
+
+  // const handleClickDeleteTodo: ComponentProps<"button">["onClick"] = (e) => {
+  //   e.stopPropagation();
+  //   supabase.from("human").delete().eq("id", human?.id);
+  // };
 
   return (
     <>
